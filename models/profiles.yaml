@@ -103,10 +103,6 @@ models:
                 - timestamp desc
             where: last_name is not null and last_name!=''
         - entity_var:
-            name: campaign_sources
-            select: array_agg( context_campaign_source )
-            from: inputs/rsIdentifies
-        - entity_var:
             name: active_days_in_past_7_days
             select: count(distinct date(timestamp))
             from: models/rsTracksUnionPages
@@ -226,7 +222,6 @@ models:
         - days_since_account_creation
         - first_name
         - last_name
-        - campaign_sources
         - active_days_in_past_7_days
         - active_days_in_past_365_days
         - total_sessions_till_date
